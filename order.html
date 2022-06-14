@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">高師宅急便</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="order.html">訂貨</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="searchpackage.html">查詢訂單</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="customeraccount.html">帳號資訊</a>
+                    </li>
+                    <div class="d-flex">
+                        <button type="button" class="btn btn-outline-light">登出</button>
+                    </div>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="mx-3 my-3" style="background-color: #eee;">
+        <div class="container  h-100">
+            <form>
+                <div class="mb-3">
+                    <label for="order_name" class="form-label my-2">寄件人姓名</label>
+                    <div class="col-4">
+                        <input type="text" class="form-control" id="order_name">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="order_phone" class="form-label">寄件人電話</label>
+                    <div class="col-4">
+                        <input type="text" class="form-control" id="order_phone">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="order_email" class="form-label">email</label>
+                    <div class="col-4">
+                        <input type="email" class="form-control" id="order_email">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="order_address" class="form-label">地址</label>
+                    <div class="row">
+                        <div class="col-3">
+                            <select class="form-select" aria-label="Default select example">
+                                <option value="" selected disabled>請選擇縣市</option>
+                                <option value="宜蘭縣">宜蘭縣</option>
+                                <option value="花蓮縣">花蓮縣</option>
+                                <option value="金門縣">金門縣</option>
+                                <option value="南投縣">南投縣</option>
+                                <option value="屏東縣">屏東縣</option>
+                                <option value="苗栗縣">苗栗縣</option>
+                                <option value="桃園市">桃園市</option>
+                                <option value="高雄市">高雄市</option>
+                                <option value="基隆市">基隆市</option>
+                                <option value="連江縣">連江縣</option>
+                                <option value="雲林縣">雲林縣</option>
+                                <option value="新北市">新北市</option>
+                                <option value="新竹市">新竹市</option>
+                                <option value="新竹縣">新竹縣</option>
+                                <option value="嘉義市">嘉義市</option>
+                                <option value="嘉義縣">嘉義縣</option>
+                                <option value="彰化縣">彰化縣</option>
+                                <option value="臺中市">臺中市</option>
+                                <option value="臺北市">臺北市</option>
+                                <option value="臺東縣">臺東縣</option>
+                                <option value="臺南市">臺南市</option>
+                                <option value="澎湖縣">澎湖縣</option>
+                            </select>
+                            </select>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="form-control" id="order_address">
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="receiver_name" class="form-label">收件人姓名</label>
+                    <div class="col-4">
+                        <input type="text" class="form-control" id="receiver_name">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="receiver_phone" class="form-label">收件人電話</label>
+                    <div class="col-4">
+                        <input type="text" class="form-control" id="receiver_phone">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="taker_phone" class="form-label">包裹大小</label>
+                    <div class="col-4">
+                        <select class="form-select" aria-label="Default select example">
+                            <option value="1">小</option>
+                            <option value="2">中</option>
+                            <option value="3">大</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary mb-4" id="place_order">送出訂單</button>
+            </form>
+    </section>
+</body>
+
+</html>
