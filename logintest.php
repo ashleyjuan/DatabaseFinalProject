@@ -35,6 +35,6 @@
       mysqli_close($link);  // 關閉資料庫連接  
     }
     else{
-        echo "請輸入帳號密碼";
+        echo "<script> {window.alert('請輸入帳號密碼！');location.href='login.php'} </script>";
     }
 ?>
