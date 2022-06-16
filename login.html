@@ -38,7 +38,7 @@
               <div class="col-md-6 col-lg-7 d-flex align-items-center">
                 <div class="card-body p-4 p-lg-5 text-black">
 
-                  <form>
+                  <form action="logintest.php" method="post">
 
                     <div class="d-flex align-items-center mb-3 pb-1">
                       <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
@@ -48,17 +48,17 @@
                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">請輸入帳戶資訊</h5>
 
                     <div class="form-outline mb-4">
-                      <input type="text" id="account" class="form-control form-control-lg" />
+                      <input type="text" id="account" class="form-control form-control-lg" name="account" />
                       <label class="form-label" for="account">帳戶</label>
                     </div>
 
                     <div class="form-outline mb-4">
-                      <input type="password" id="password" class="form-control form-control-lg" />
+                      <input type="password" id="password" class="form-control form-control-lg" name="password" />
                       <label class="form-label" for="password">密碼</label>
                     </div>
 
                     <div class="pt-1 mb-4">
-                      <button class="btn btn-dark btn-lg btn-block" type="button" id="login">登入</button>
+                      <button class="btn btn-dark btn-lg btn-block" type="submit" id="login">登入</button>
                     </div>
 
                     <a class="small text-muted" href="#!">忘記密碼</a>
@@ -78,35 +78,48 @@
 </body>
 
 </html>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   // Variable to hold request
   var request;
 
   // Bind to the submit event of our form
-  $("#login").click(function () {
+  $("#form").submit(function (event) {
+
     var account = $("#account").val();
     var password = $("#password").val();
 
     if (account == '' || password == '') {
       alert("請完整輸入");
-      return false;
+      // return false;
+    }
+    if (account != "" && password != "") {
+      $.ajax({
+        type: "POST",
+        url: "logintest.php",
+        data: {
+          account: account,
+          password: password,
+        },
+          // cache: false,
+          // success: function (data) {
+          //   console.log(data);
+          // },
+          // error: function (xhr, status, error) {
+          //   console.error(xhr);
+          // }
+        success: function (response) {
+          if (response == "success") {
+            console.log(data);
+            window.location.href = "apply.html";
+          }
+          else {
+            console.log(data);
+            console.log(124)
+            alert("Wrong Details");
+          }
+        }
+      });
     }
 
-    $.ajax({
-      type: "POST",
-      url: "index.php",
-      data: {
-        account: account,
-        password: password,
-      },
-      cache: false,
-      success: function (data) {
-        alert(data);
-      },
-      error: function (xhr, status, error) {
-        console.error(xhr);
-      }
-    });
-
   });
-</script>
+</script> -->
