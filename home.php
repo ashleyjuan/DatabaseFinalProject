@@ -43,7 +43,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">首頁</a>
                     </li>
-                    <!-- <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="#">寄件</a>
                     </li>
                     <li class="nav-item">
