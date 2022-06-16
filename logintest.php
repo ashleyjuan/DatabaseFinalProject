@@ -27,14 +27,14 @@
       if ( $total_records > 0 ) {
           // 成功登入, 指定Session變數
           $_SESSION["login_session"] = true;
-          header("Refresh: 0; url=home.php");
+          header("Refresh: 0; url=home.html");
+          echo "success";
       } else {  // 登入失敗
           $_SESSION["login_session"] = false;
-          echo "<script> {window.alert('使用者名稱或密碼錯誤！');location.href='login.php'} </script>";
+          echo "<script> {window.alert('使用者名稱或密碼錯誤！');location.href='login.html'} </script>";
       }
-      mysqli_close($link);  // 關閉資料庫連接  
+    //   mysqli_close($link);  // 關閉資料庫連接  
     }
     else{
         echo "<script> {window.alert('請輸入帳號密碼！');location.href='login.php'} </script>";
     }
-?>
