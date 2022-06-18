@@ -9,7 +9,7 @@ $database = '410977002';
 $con = mysqli_connect($hostname, $username, $password, $database) or die("Error " . mysqli_error($con));
 
 // fetch records
-$sql = "SELECT `package_id`, `weight` ,`package_type`,`timeliness`,`fee`,`customer_id`,`receiver_id`,`warehouse_id`FROM `package`";
+$sql = "SELECT  * FROM `package`";
 $result = mysqli_query($con, $sql);
 
 while($row = mysqli_fetch_assoc($result)) {

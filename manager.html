@@ -54,12 +54,16 @@
                 <thead class="table-dark">
                     <tr>
                         <th>訂單編號</th>
-                        <th>包裹大小</th>
+                        <th>包裹類型</th>
                         <th>金額</th>
+                        <th>目的地</th>
+                        <th>抵達地</th>
                         <th>寄件人</th>
                         <th>寄件時間</th>
                         <th>預計抵達時間</th>
                         <th>收件時間</th>
+                        <th>收件人</th>
+                        <th>收件人電話</th>
                         <th>包裹狀態</th>
                     </tr>
                 </thead>
@@ -93,13 +97,17 @@
             },
             "columns": [
                 { "data": "package_id" },
-                { "data": "weight" },
                 { "data": "package_type" },
+                { "data": "weight" },
+                { "data": "start_location" },
+                { "data": "destination" },
                 { "data": "timeliness" },
-                { "data": "fee" },
-                { "data": "customer_id" },
-                { "data": "receiver_id" },
-                { "data": "warehouse_id" },
+                { "data": "timeliness" },
+                { "data": "timeliness" },
+                { "data": "timeliness" },
+                { "data": "receiver_name" },
+                { "data": "receiver_phone_number" },
+                { "data": "statement" },
             ]
         });
     })
