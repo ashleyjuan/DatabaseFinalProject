@@ -1,7 +1,7 @@
 <?php
 include "index.php";
 // fetch records
-$sql = "SELECT `package`.`package_id`,`package`.`package_type`,`payment`.`fee`,`package`.`start_location`,`package`.`destination`,
+$sql = "SELECT `package`.`package_id`,`package`.`package_type`,`package`.`weight`,`payment`.`fee`,`package`.`start_location`,`package`.`destination`,
 `customer`.`name`, `time`.`start_time`,`time`.`schedule_time`,`time`.`end_time`,`package`.`receiver_name`,`package`.`receiver_phone_number`,
 `transportation`.`type_name`,`shipment`.`statement` 
 FROM `package` 
