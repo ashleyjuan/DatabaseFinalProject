@@ -45,35 +45,60 @@
             </div>
         </div>
     </nav>
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+                type="button" role="tab" aria-controls="nav-home" aria-selected="true">全部資訊</button>
+            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-amount"
+                type="button" role="tab" aria-controls="nav-profile" aria-selected="false">查找過去一年運送包裹最多的客戶</button>
+            <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-cost" type="button"
+                role="tab" aria-controls="nav-contact" aria-selected="false">找出過去一年在運費上花費最多的客戶</button>
+            <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-notontime"
+                type="button" role="tab" aria-controls="nav-contact" aria-selected="false">找出未在承諾時間內送達的包裹</button>
+        </div>
+    </nav>
     <section style="background-color: #eee;">
-        <div class="container-fluid my-2 h-100">
-            <button type="button" class="btn btn-outline-primary col-auto"
-                id="search_many_package">查找過去一年運送包裹最多的客戶</button>
-            <button type="button" class="btn btn-outline-success col-auto"
-                id="search_cost_package">找出過去一年在運費上花費最多的客戶</button>
-            <button type="button" class="btn btn-outline-warning col-auto"
-                id="search_not_ontime">找出未在承諾時間內送達的包裹</button>
-            <table id="package" class="table table-striped table-bordered table-responsive my-2" style="width:100%">
-                <thead class="table-dark">
-                    <tr>
-                        <th>訂單編號</th>
-                        <th>包裹類型</th>
-                        <th>金額</th>
-                        <th>目的地</th>
-                        <th>抵達地</th>
-                        <th>寄件人</th>
-                        <th>寄件時間</th>
-                        <th>預計抵達時間</th>
-                        <th>收件時間</th>
-                        <th>收件人</th>
-                        <th>收件人電話</th>
-                        <th>運輸方式</th>
-                        <th>包裹狀態</th>
-                        <th>備註</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <table id="package" class="table table-striped table-bordered table-responsive my-2" style="width:100%">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>訂單編號</th>
+                            <th>包裹類型</th>
+                            <th>金額</th>
+                            <th>目的地</th>
+                            <th>抵達地</th>
+                            <th>寄件人</th>
+                            <th>寄件時間</th>
+                            <th>預計抵達時間</th>
+                            <th>收件時間</th>
+                            <th>收件人</th>
+                            <th>收件人電話</th>
+                            <th>運輸方式</th>
+                            <th>包裹狀態</th>
+                            <th>備註</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="nav-amount" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <table id="search_many_package" class="table table-striped table-bordered table-responsive my-2"
+                    style="width:100%">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>寄件人</th>
+                            <th>寄件人電話</th>
+                            <th>寄件人電子郵件</th>
+                            <th>寄件數量</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="nav-cost" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+            <div class="tab-pane fade" id="nav-notontime" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+        </div>
     </section>
 </body>
 
@@ -117,8 +142,22 @@
                 { "data": "statement" },
             ]
         });
-        $('#search_many_package').click(function () {
-            alert(123);
+        $('#search_many_package').dataTable({
+            "processing": true,
+            "ajax": "search_many_package.php",
+            "language": language,
+            "columns": [
+                { "data": "name" },
+                { "data": "phone_number" },
+                { "data": "email" },
+                { "data": "cnt" },
+            ]
+        });
+        $('#search_cost_package').click(function () {
+            alert(135);
+        });
+        $('#search_not_ontime').click(function () {
+            alert(158);
         });
         $('#search_cost_package').click(function () {
             alert(135);
