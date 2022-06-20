@@ -38,7 +38,7 @@
               <div class="col-md-6 col-lg-7 d-flex align-items-center">
                 <div class="card-body p-4 p-lg-5 text-black">
 
-                  <form action="logintest.php" method="post">
+                  <form action="login.php" method="post">
 
                     <div class="d-flex align-items-center mb-3 pb-1">
                       <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
@@ -78,48 +78,3 @@
 </body>
 
 </html>
-<!-- <script type="text/javascript">
-  // Variable to hold request
-  var request;
-
-  // Bind to the submit event of our form
-  $("#form").submit(function (event) {
-
-    var account = $("#account").val();
-    var password = $("#password").val();
-
-    if (account == '' || password == '') {
-      alert("請完整輸入");
-      // return false;
-    }
-    if (account != "" && password != "") {
-      $.ajax({
-        type: "POST",
-        url: "logintest.php",
-        data: {
-          account: account,
-          password: password,
-        },
-          // cache: false,
-          // success: function (data) {
-          //   console.log(data);
-          // },
-          // error: function (xhr, status, error) {
-          //   console.error(xhr);
-          // }
-        success: function (response) {
-          if (response == "success") {
-            console.log(data);
-            window.location.href = "apply.html";
-          }
-          else {
-            console.log(data);
-            console.log(124)
-            alert("Wrong Details");
-          }
-        }
-      });
-    }
-
-  });
-</script> -->

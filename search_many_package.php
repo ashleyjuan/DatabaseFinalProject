@@ -1,15 +1,15 @@
 <?php
-// db settings
-$hostname = '140.127.74.186';
-$username = '410977002';
-$password = '410977002';
-$database = '410977002';
-
-// db connection
-$con = mysqli_connect($hostname, $username, $password, $database) or die("Error " . mysqli_error($con));
-
+include "index.php";
 // fetch records
-$sql = "";
+$sql = "SELECT `customer`.`name` , `customer`.`phone_number` , `customer`.`email` , count(`payment`.`customer_id`) AS cnt
+FROM `package` 
+LEFT JOIN `payment` ON `package`.`package_id`=`payment`.`package_id` 
+LEFT JOIN `time` ON `time`.`package_id`=`package`.`package_id` 
+LEFT JOIN `shipment` ON `shipment`.`package_id`=`package`.`package_id` 
+LEFT JOIN `customer` ON `payment`.`customer_id`=`customer`.`customer_id` 
+WHERE `time`.`start_time` BETWEEN '20220101' AND '20221231'
+GROUP BY `payment`.`customer_id`
+ORDER BY cnt DESC";
 $result = mysqli_query($con, $sql);
 
 while ($row = mysqli_fetch_assoc($result)) {
