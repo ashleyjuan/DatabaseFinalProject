@@ -15,6 +15,7 @@ LEFT JOIN `payment` ON `package`.`package_id`=`payment`.`package_id`
 LEFT JOIN `time` ON `time`.`package_id`=`package`.`package_id` 
 LEFT JOIN `shipment` ON `shipment`.`package_id`=`package`.`package_id` 
 LEFT JOIN `customer` ON `payment`.`customer_id`=`customer`.`customer_id` 
+WHERE `time`.`start_time` BETWEEN '20220101' AND '20221231'
 GROUP BY `payment`.`customer_id`
 ORDER BY cnt DESC";
 $result = mysqli_query($con, $sql);
