@@ -26,6 +26,7 @@
       // 是否有查詢到使用者記錄
       if ( $total_records > 0 ) {
           // 成功登入, 指定Session變數
+          $_SESSION['account_id'] = $value['account_id'];
           $_SESSION["login_session"] = true;
           header("Refresh: 0; url=home.html");
           echo "success";
