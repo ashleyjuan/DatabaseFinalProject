@@ -18,7 +18,7 @@ if (!(empty($_POST['account']) || empty($_POST['password']))) {
     header('Location: home.html');
 
     if(! isset($_SESSION['id'])) {
-        echo "<script> {window.alert('使用者名稱或密碼錯誤！');location.href='login.html'} </script>";
+        // echo "<script> {window.alert('使用者名稱或密碼錯誤！');location.href='login.html'} </script>";
         header('Location: login.html');
     }
 }
