@@ -31,7 +31,16 @@ if ($account != "" && $password != "") {
         // 成功登入, 指定Session變數
         $_SESSION['account_id'] = $user['account_id'];
         $_SESSION["login_session"] = true;
-        header("Refresh: 0; url=home.html");
+        if($user['identity'] == 1){
+            header("Refresh: 0; url=manager.html");
+        }
+        if($user['identity'] == 2){
+            header("Refresh: 0; url=shipper.html");
+        }
+        if($user['identity'] == 3){
+            header("Refresh: 0; url=home.html");
+        }
+        //header("Refresh: 0; url=home.html");
         echo "success";
     } else {  // 登入失敗
         $_SESSION["login_session"] = false;
