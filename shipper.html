@@ -54,6 +54,7 @@
                 <thead class="table-dark">
                     <tr>
                         <th>訂單編號</th>
+                        <th>訂單編號</th>
                         <th>包裹大小</th>
                         <th>金額</th>
                         <th>抵達地</th>
@@ -67,6 +68,38 @@
                 </thead>
                 <tbody></tbody>
             </table>
+        </div>
+        <div class="modal fade" id="packageModal" tabindex="-1" aria-labelledby="packageModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="packageeModalLabel">修改貨品狀態 </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class=" form-check-inline" id="state">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="Radios1"
+                                    value="配送中">
+                                <label class="form-check-label" for="Radios1">
+                                    配送中
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="Radios2"
+                                    value="已抵達">
+                                <label class="form-check-label" for="Radios2">
+                                    已抵達
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="sure">確認</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </body>
@@ -91,6 +124,8 @@
         },
     };
     $(document).ready(function () {
+        let package_id="";
+        let statement="";
         $('#package').dataTable({
             "processing": true,
             "ajax": {
@@ -100,6 +135,12 @@
             },
             "language": language,
             "columns": [
+                {
+                    "data": null,
+                    render: function (data, type, row, meta) {
+                        return ` <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#packageModal" data-type="edit" name="buttonModalEditable"  data-id="${row.package_id}" data-name="package_id">${row.package_id}</button>`;
+                    }
+                },
                 { "data": "package_id" },
                 { "data": "package_type" },
                 { "data": "fee" },
@@ -111,6 +152,33 @@
                 { "data": "end_time" },
                 { "data": "statement" },
             ]
+        });
+        $(document).on('show.bs.modal', '#packageModal', function (e) {
+            let source = e.relatedTarget;
+            package_id = $(source).attr('data-id');
+        })
+        $("#sure").click(function () {
+            statement = $('#state input:radio:checked').val();
+            $.ajax(
+                {
+                    url: "revise.php",
+                    data: {
+                        "package": package_id,
+                        "statement": statement
+                    },
+                    method: "POST",
+
+                    error: function () {
+
+                        alert("失敗");
+
+                    },
+                    success: function () {
+
+                        alert("成功");
+
+                    }
+                });
         });
     });
 </script>
