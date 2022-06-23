@@ -158,9 +158,12 @@
     $(document).ready(function () {
         $('#package').dataTable({
             "processing": true,
-            "ajax": "package.php",
+            "ajax": {
+                "url": "package.php",
+                "type": "GET",
+                "datatype": "json",
+            },
             "language": language,
-            // "datatype": "json",
             "columns": [
                 { "data": "package_id" },
                 { "data": "package_type" },
@@ -181,9 +184,12 @@
         });
         $('#search_many_package').dataTable({
             "processing": true,
-            "ajax": "search_many_package.php",
+            "ajax": {
+                "url": "search_many_package.php",
+                "type": "GET",
+                "datatype": "json",
+            },
             "language": language,
-            // "datatype": "json",
             "columns": [
                 { "data": "name" },
                 { "data": "phone_number" },
@@ -193,9 +199,12 @@
         });
         $('#search_cost_package').dataTable({
             "processing": true,
-            "ajax": "cost.php",
+            "ajax": {
+                "url": "cost.php",
+                "type": "GET",
+                "datatype": "json",
+            },
             "language": language,
-            // "datatype": "json",
             "columns": [
                 { "data": "name" },
                 { "data": "phone_number" },
@@ -210,9 +219,7 @@
                 "type": "GET",
                 "datatype": "json",
             },
-            // "ajax": "notontimepackage.php",
             "language": language,
-            // "datatype": "json",
             "columns": [
                 { "data": "package_id" },
                 { "data": "package_type" },

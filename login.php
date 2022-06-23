@@ -38,11 +38,8 @@ if ($account != "" && $password != "") {
             header("Refresh: 0; url=shipper.html");
         }
         if($user['identity'] == 3){
-            // header("Refresh: 0; url=home.html");
-        echo "<script> {window.alert('" .$_SESSION['account_id']."');location.href='searchpackage.html'} </script>";
-
+            header("Refresh: 0; url=home.html");
         }
-        //header("Refresh: 0; url=home.html");
         echo "success";
     } else {  // 登入失敗
         $_SESSION["login_session"] = false;
