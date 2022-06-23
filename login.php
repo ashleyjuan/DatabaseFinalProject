@@ -29,7 +29,7 @@ if ($account != "" && $password != "") {
     // 是否有查詢到使用者記錄
     if ($total_records > 0) {
         // 成功登入, 指定Session變數
-        $_SESSION['account_id'] = $user['account_id'];
+        $_SESSION['account'] = $account;
         $_SESSION["login_session"] = true;
         if($user['identity'] == 1){
             header("Refresh: 0; url=manager.html");
