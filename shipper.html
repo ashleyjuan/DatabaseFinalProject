@@ -54,7 +54,6 @@
                 <thead class="table-dark">
                     <tr>
                         <th>訂單編號</th>
-                        <th>訂單編號</th>
                         <th>包裹大小</th>
                         <th>金額</th>
                         <th>抵達地</th>
@@ -123,10 +122,14 @@
             "last": "最後一頁"
         },
     };
-    $(document).ready(function () {
-        let package_id="";
-        let statement="";
+    $(function () {
+        getpackage();
+    })
+    let package_id = "";
+    let statement = "";
+    function getpackage() {
         $('#package').dataTable({
+            "destroy": true,
             "processing": true,
             "ajax": {
                 "url": "shipper.php",
@@ -141,7 +144,6 @@
                         return ` <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#packageModal" data-type="edit" name="buttonModalEditable"  data-id="${row.package_id}" data-name="package_id">${row.package_id}</button>`;
                     }
                 },
-                { "data": "package_id" },
                 { "data": "package_type" },
                 { "data": "fee" },
                 { "data": "destination" },
@@ -153,32 +155,28 @@
                 { "data": "statement" },
             ]
         });
-        $(document).on('show.bs.modal', '#packageModal', function (e) {
-            let source = e.relatedTarget;
-            package_id = $(source).attr('data-id');
-        })
-        $("#sure").click(function () {
-            statement = $('#state input:radio:checked').val();
-            $.ajax(
-                {
-                    url: "revise.php",
-                    data: {
-                        "package": package_id,
-                        "statement": statement
-                    },
-                    method: "POST",
-
-                    error: function () {
-
-                        alert("失敗");
-
-                    },
-                    success: function () {
-
-                        alert("成功");
-
-                    }
-                });
-        });
+    }
+    $(document).on('show.bs.modal', '#packageModal', function (e) {
+        let source = e.relatedTarget;
+        package_id = $(source).attr('data-id');
+    })
+    $("#sure").click(function () {
+        statement = $('#state input:radio:checked').val();
+        $.ajax(
+            {
+                url: "revise.php",
+                data: {
+                    "package": package_id,
+                    "statement": statement
+                },
+                method: "POST",
+                error: function () {
+                    alert("失敗");
+                },
+                success: function () {
+                    alert("成功");
+                    getpackage();
+                }
+            });
     });
 </script>
