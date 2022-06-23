@@ -49,29 +49,29 @@
 
 ## 四、Demo演示
 
-![](/Users/ashleyjuan/final/login.png)
+![alt text](https://github.com/ashleyjuan/DatabaseFinalProject/blob/master/login.png?raw=true)
 
 一開始進行登入，系統會根據使用者身份跳轉至不同頁面
 
 ### 管理者：
 
-![](/Users/ashleyjuan/final/package.png)
+![alt text](https://github.com/ashleyjuan/DatabaseFinalProject/blob/master/package.png?raw=true)
 
 可在登入後查看貨品資訊，在右上方搜尋列中搜尋需要的資訊。
 
 ### 顧客：
 
-![](/Users/ashleyjuan/final/customer.png)
+![alt text](https://github.com/ashleyjuan/DatabaseFinalProject/blob/master/customer.png?raw=true)
 
 可在登入後查看貨品資訊，了解每個貨品的運送資訊，在右上方搜尋列中搜尋需要的資訊。
 
 ### 快遞：
 
-![](/Users/ashleyjuan/final/shipper.png)
+![alt text](https://github.com/ashleyjuan/DatabaseFinalProject/blob/master/shipper.png?raw=true)
 
 在登入後查看需寄送及已寄送完的包裹，點選訂單編號可更改貨品的運送狀態，在右上方搜尋列中搜尋需要的資訊。
 
-![](/Users/ashleyjuan/final/success.png)
+![alt text](https://github.com/ashleyjuan/DatabaseFinalProject/blob/master/success.png?raw=true)
 
 點選確認後會送出進行更改，頁面也會重整顯示最新資訊。
 
