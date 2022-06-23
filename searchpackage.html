@@ -44,7 +44,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="customeraccount.html">帳號資訊</a>
                     </li>
-                    <form action="login.html">
+                    <form action="logout.php">
                         <button type="submit" class="btn btn-outline-light">登出</button>
                     </form>
 
@@ -96,9 +96,12 @@
     $(document).ready(function () {
         $('#package').dataTable({
             "processing": true,
-            "ajax": "searchpackage.php",
+            "ajax": {
+                "url": "searchpackage.php",
+                "type": "GET",
+                "datatype": "json",
+            },
             "language": language,
-            "datatype": "json",
             "columns": [
                 { "data": "package_id" },
                 { "data": "package_type" },

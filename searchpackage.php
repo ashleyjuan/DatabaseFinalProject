@@ -9,7 +9,7 @@ LEFT JOIN `payment` ON `payment`.`package_id`=`package`.`package_id`
 LEFT JOIN `shipment` ON `shipment`.`package_id`=`package`.`package_id` 
 LEFT JOIN `customer` ON `customer`.`customer_id`=`payment`.`customer_id` 
 LEFT JOIN `account` ON `account`.`account_id`=`customer`.`account_id` 
-WHERE  `account`.`account` = '" .$_SESSION['account'] . "';";
+WHERE  `account`.`account` = '" .$_SESSION['account'] . "'";
 
 $result = mysqli_query($con, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
