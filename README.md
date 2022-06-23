@@ -45,6 +45,15 @@
 
 查看送貨包裹資訊、更改包裹狀態。
 
-## 四、程式碼目錄結構說明
+## 四、Demo演示
 
+![](/Users/ashleyjuan/final/login.png)
+
+一開始進行登入，系統會根據使用者身份跳轉至不同頁面
+
+### 管理者：
+
+![](/Users/ashleyjuan/final/package.png)
+
+可在登入後查看產品資訊，在右上方搜尋列中搜尋需要的資訊。
 
