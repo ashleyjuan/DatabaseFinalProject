@@ -162,11 +162,12 @@
             $.ajax(
                 {
                     url: "revise.php",
+                    method: "POST",
                     data: {
-                        "package": package_id,
+                        "package_id": package_id,
                         "statement": statement
                     },
-                    method: "POST",
+                    
 
                     error: function () {
 
