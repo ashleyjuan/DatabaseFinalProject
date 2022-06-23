@@ -40,7 +40,6 @@ if ($account != "" && $password != "") {
         if($user['identity'] == 3){
             header("Refresh: 0; url=home.html");
         }
-        //header("Refresh: 0; url=home.html");
         echo "success";
     } else {  // 登入失敗
         $_SESSION["login_session"] = false;
