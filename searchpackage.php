@@ -5,8 +5,10 @@ $sql = "SELECT `package`.`package_id`,`package`.`package_type`,`payment`.`fee`,`
 FROM `package` 
 LEFT JOIN `time` ON `time`.`package_id`=`package`.`package_id` 
 LEFT JOIN `payment` ON `payment`.`package_id`=`package`.`package_id` 
-LEFT JOIN `shipment` ON `shipment`.`package_id`=`package`.`package_id`  
-GROUP BY `package`.`package_id`";
+LEFT JOIN `shipment` ON `shipment`.`package_id`=`package`.`package_id` 
+LEFT JOIN `customer` ON `customer`.`customer_id`=`payment`.`customer_id` 
+LEFT JOIN `account` ON `account`.`customer_id`=`customer`.`customer_id` 
+WHERE  `account`.`account` = $_SESSION['account_id'];
 $result = mysqli_query($con, $sql);
 
 while ($row = mysqli_fetch_assoc($result)) {
